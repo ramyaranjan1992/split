@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="emi_home::layout(~{::div})">
+<head>
+<meta charset="UTF-8" />
+<title>EMI Details</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+
+<body>
+
+	<div>
+		<div class="container" style="border: 2px solid black;height: 590px;">
+			<div class="col-md-8 offset-md-2" style="margin-left: 200px;">
+			
+			<h2 style="text-decoration: underline;text-transform: uppercase;margin-top: 20px;color: maroon;
+				">Please Confirm Your Detail</h2><br>
+
+				<form th:action="@{/paymentGateway}" th:method="post">
+
+					<table id="payerCreation" class="table table-condensed table-borderless">
+						<tbody>
+								
+							<tr>
+								<td><label for="payerId" style="font-size: x-large;">PayerId : </label></td>
+								<td><input th:type="text" id="payerId" name="payerId" th:value="${payment.payerId}"></td>
+							</tr>
+							
+							<tr>
+								<td><label for="amount" style="font-size: x-large;">Amount : </label></td>
+								<td><input type="text" id="amount" name="amount" th:value="${payment.amount}"></td>
+							</tr>
+							
+							<tr>
+								<td><label for="name" style="font-size: x-large;">Name : </label></td>
+								<td><input th:type="text" id="name" name="name" th:value="${payment.name}"></td>
+							</tr>
+							
+							<tr>
+								<td><label for="mobileNumber" style="font-size: x-large;">Mobile Number : </label></td>
+								<td><input th:type="text" id="mobileNumber" name="mobileNumber" th:value="${payment.mobileNumber}"></td>
+							</tr>
+							<tr>
+								<td><label for="email" style="font-size: x-large;">Email : </label></td>
+								<td><input type="text" id="email" name="email" th:value="${payment.email}"></td>
+							</tr>
+							
+							<tr>
+								<td><label for="emiMonth" style="font-size: x-large;">EMI Month : </label></td>
+								<td><input type="text" id="emiMonth" name="emiMonth" th:value="${payment.emiMonth}"></td>
+							</tr>
+							
+						</tbody>
+					</table>
+			
+					<input id="submitButton" type="submit" value="Confirmed" style="margin-left: 100px;
+					width: 200px; height:40px; font-weight: bold;"/>
+				</form>
+		</div> <!-- end of offset div -->
+	</div> <!-- end of container div -->
+	</div> <!-- end of parent div -->
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="emi_home::layout(~{::div})">
+<head>
+<meta charset="UTF-8" />
+<title>Payment Gateway</title>
+</head>
+<body>
+	<div class="text-center">
+		<h1>Please Confirm Your Details</h1>
+		
+		<form th:action="@{/paymentGateway}" th:method="post">
+			<pre>
+Payer Id : 		 <input type="text" name="payerId" th:value="${payment.payerId}"><br><br>	  
+Name:      		 <input type="text" name="firstName" th:value="${payment.name}"><br><br> 
+Mobile Number:   <input type="text" name="mobileNumber" th:value="${payment.mobileNumber}"><br><br>
+Email:           <input type="text" name="email" th:value="${payment.email}"><br><br>
+Amount:          <input type="text" name="amount"><br><br>
+Address:     	 <input type="text" name="address" th:value="${payment.address}"><br><br>
+       <input type="submit" value="Pay" style="width: 150px;" />
+</pre>
+		</form>
+
+</div>
+
+</body>
+</html>
+ -->
+
+
+
+
+
+
+
+
+<!-- <!doctype html> -->
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org" -->
+<!-- 	th:replace="emi_home::layout(~{::div})"> -->
+<!-- <head> -->
+<!-- <meta charset="UTF-8" /> -->
+<!-- <title>Payment Gateway</title> -->
+
+
+<!-- <!-- //<link rel="stylesheet" th:href="@{/css/style.css}" /> --> 
+
+
+<!-- <!-- <style> -->
+<!-- body { -->
+<!-- 	text-align: center; -->
+<!-- 	background-color: lightblue; -->
+<!-- } -->
+
+<!-- h1 { -->
+<!-- 	color: blue; -->
+<!-- } -->
+
+<!-- form { -->
+<!-- 	font-size: 20px; -->
+<!-- } -->
+
+<!-- input { -->
+<!-- 	font-size: 20px; -->
+<!-- } -->
+<!-- </style> --> 
+
+<!-- </head> -->
+<!-- <body> -->
+<!-- 	<div> -->
+<!-- 		<h1>Please enter your details</h1> -->
+<!-- 		<!-- <form name="myform" onsubmit="return validateform()"> --> 
+<!-- 		<form> -->
+<!-- 			<pre>   -->
+<!-- First Name:      <input type="text" name="payerFirstName" id="payerFirstName"><br><br>  -->
+<!-- Last Name:       <input type="text" name="payerLastName" id="payerLastName"><br><br>   -->
+<!-- Mobile Number:   <input type="text" name="mobileNumber" id="mobileNumber"><br><br> -->
+<!-- Email:           <input type="text" name="payerEmail" id="payerEmail"><br><br> -->
+<!-- Amount:          <input type="text" name="amount" id="amount"><br><br>      -->
+<!--        <input id="submitButton" type="button" value="Pay" style="width: 150px;" /> -->
+<!-- </pre> -->
+<!-- 		</form> -->
+
+<!-- <script> -->
+<!-- // let x = document.cookie;
+// 	$(document).ready(function() {
+// 		$('#submitButton').on('click', function() {
+// 			$.ajax({
+// 				 url : "http://localhost:8080/paymentGateway",
+// 				type : 'POST', 
+// 				crossDomain: true,
+// 				crossOrigin:true,
+// 				data: JSON.stringify({ 
+// 					  payerFirstName: $('#payerFirstName').val(),
+// 					  payerLastName: $('#payerLastName').val(),
+// 					  mobileNumber: $('#mobileNumber').val(),
+// 					  payerEmail: $('#payerEmail').val(),
+// 					  amount: $('#amount').val()
+// 	                  }),
+// 				contentType : 'application/json',
+// 				dataType: 'html',
+// 				headers : {
+// 					"Authorization" : `${x.slice(0,)}`,
+// 					'Access-Control-Allow-Origin': '*',
+// 					'Access-Control-Request-Headers': 'x-requested-with',
+// 					'Access-Control-Allow-Headers': 'x-requested-with',
+// 					"accept": "application/json"
+// 				},
+// 				async : false,
+// 				success:function(response) { 
+// 					console.log("welcome response");
+// 					 //window.location.href = "http://localhost:8080/payer/creation";
+// 				//document.write(response);
+// 					//console.log(response)
+// 					//$('#appendResponse').html(response);
+// 					 /* window.location.href="output.html" ;    */
+// 					//$('#content').load("new.html");
+// 					}
+// 			/* }).then(res=> document.getElementById("body").innerHTML = (JSON.stringify(res))).catch(err=>{
+// 		    	console.log(err)
+// 			}) */
+// 		});
+// 	});
+// 	}); -->
+<!-- </script> -->
+<!-- <!-- <script>   -->
+<!-- 		function validateform() -->
+<!-- 		{   -->
+<!-- 			var name=document.myform.username.value;   -->
+<!-- 			var password=document.myform.password.value;   -->
+<!-- 			var number=document.myform.number.value;  -->
+<!-- 			var x=document.myform.email.value;   -->
+<!-- 			var atposition=x.indexOf("@");   -->
+<!-- 			var dotposition=x.lastIndexOf(".");  -->
+			
+<!-- 			if (name==null || name=="") -->
+<!-- 			{   -->
+<!-- 		  		alert("Name can't be blank");   -->
+<!-- 		  		return false;   -->
+<!-- 			} -->
+<!-- 			else if(password.length<6) -->
+<!-- 			{   -->
+<!-- 		  		alert("Password must be at least 6 characters long.");   -->
+<!-- 		  		return false;   -->
+<!-- 		  	}  -->
+<!-- 			else if (isNaN(number)) -->
+<!-- 			{ -->
+<!-- 				alert("Enter Numeric value only"); -->
+<!-- 			    return false;   -->
+<!-- 			} -->
+<!-- 			else if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length) -->
+<!-- 			{   -->
+<!-- 				  alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);   -->
+<!-- 				  return false;   -->
+<!-- 			} -->
+<!-- 			else -->
+<!-- 			{ -->
+<!-- 				alert("Your data is successfully sent to the Insert.java Servlet"); -->
+<!-- 			  	return true;   -->
+<!-- 		    }   -->
+<!-- 		}   -->
+<!-- </script> --> 
+
+
+<!-- </div> -->
+
+<!-- </body> -->
+<!-- </html> -->
+
+
+
+
+

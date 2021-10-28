@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="emi_home::layout(~{::div})">
+<head>
+<meta charset="UTF-8" />
+<title>Output4</title>
+</head>
+<body>
+
+
+	<div class="container-fluid">
+		<h3>All Payer Details :-</h3><br>
+		<div class="scrollable">
+		
+						<table id="dtHorizontalVerticalExample" class="table table-bordered table-striped table-hover
+						rs-table-bordered">
+		
+		
+						<thead class="thead-dark">
+							<tr>
+								<th>Account Id</th>
+								<th>Full Name</th>
+								<th>Parent Name</th>
+								<th>Date Of Birth</th>
+								
+								<th>Email Id</th>
+								<th>Phone Number</th>
+								<th>Alternative Phone Number</th>
+								
+								<th>Aadhaar Number</th>
+								<th>Gender</th>
+								<th>City</th>
+								<th>State</th>
+								<th>Address</th>
+								
+								<th>Pan Number</th>
+								<th>Pin Number</th>
+
+								<th>Organization</th>
+								<th>Scheme Name</th>
+								<th>Rate Of Interest</th>
+								<!-- <th>Penal Interest</th>
+								<th>Penal GST</th> -->
+								<th>GST</th>
+
+								<th>Merchant Id</th>
+								<th>Loan EMI Date</th>
+								<th>Loan Amount</th>
+								<th>Loan Tenure</th>
+								<th>EMI Date</th>
+								<th>Interest</th>
+								<th>Principal</th>
+								<th>GST on principal</th>
+								<th>Payable EMI</th>
+								<th>Total Payable</th>
+								<th>Pay Status</th>
+								<!-- <th>Pay Mode</th> -->
+								<th>Balance</th>
+								<!-- <th>Payment Confirmation</th>
+								<th>Default Payer</th> -->
+							</tr>
+						</thead>
+		
+		
+						<tbody>
+						<th:block th:each="Invalid : ${Payers}">
+			
+					<tr>
+					<td th:text="${Invalid.accountId}"></td>
+					<td th:text="${Invalid.fullName}"></td>
+					<td th:text="${Invalid.parentName}"></td>
+					<td th:text="${Invalid.dob}"></td>
+					
+					<td th:text="${Invalid.email}"></td>
+					<td th:text="${Invalid.phoneNumber}"></td>
+					<td th:text="${Invalid.alternativePhoneNumber}"></td>
+					
+					<td th:text="${Invalid.aadhaar}"></td>
+					<td th:text="${Invalid.gender}"></td>
+					<td th:text="${Invalid.city}"></td>
+					<td th:text="${Invalid.state}"></td>
+					<td th:text="${Invalid.address}"></td>
+					
+					<td th:text="${Invalid.pan}"></td>
+					<td th:text="${Invalid.pin}"></td>
+					
+					<td th:text="${Invalid.organisation}"></td>
+					<td th:text="${Invalid.schemeName}"></td>
+					<td th:text="${Invalid.rateOfInterest}"></td>
+					<!-- <td th:text="${Invalid.penalInterest}"></td>
+					<td th:text="${Invalid.penalGst}"></td> -->
+					<td th:text="${Invalid.gst}"></td>
+					
+					<td th:text="${Invalid.merchantId}"></td>
+					<td th:text="${Invalid.loanEmiDate}"></td>
+					<td th:text="${Invalid.loanAmount}"></td>
+					<td th:text="${Invalid.loanTenure}"></td>
+					<td th:text="${Invalid.emiDate}"></td>
+					<td th:text="${Invalid.interest}"></td>
+					<td th:text="${Invalid.principal}"></td>
+					<td th:text="${Invalid.gstOnPrincipal}"></td>
+					<td th:text="${Invalid.paybleEmi}"></td>
+					<td th:text="${Invalid.totalPayble}"></td>
+					<td th:text="${Invalid.payStatus}"></td>
+					<!-- <td th:text="${Invalid.payMode}"></td> -->
+					<td th:text="${Invalid.balance}"></td>
+					<!-- <td th:text="${Invalid.paymentConfirmation}"></td>
+					<td th:text="${Invalid.defaultPayer}"></td> -->
+				</tr>
+			</th:block>
+
+			</tbody>
+		</table>
+			
+		</div>
+
+	</div>
+
+
+</body>
+</html>

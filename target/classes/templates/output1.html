@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="emi_home::layout(~{::div})">
+<head>
+<meta charset="UTF-8" />
+<title>Output1</title>
+</head>
+<body>
+	<div>
+		
+		
+		
+		<div th:each="element : ${hashMapObject}">
+		
+			<div th:if="${element.key} == 'Invalid'">
+			
+				<h3 style="color: red;" th:text="${element.value}"></h3>
+		
+			</div>
+			
+			<div th:if="${element.key} == 'Success'">
+			
+				<h3 style="color: blue;" th:text="${element.value}"></h3>
+		
+			</div>
+			
+			<div th:if="${element.key} == 'Exception'">
+			
+				<h3 style="color: red;" th:text="${element.value}"></h3>
+		
+			</div>
+			
+		</div>
+		
+	</div>
+
+</body>
+</html>

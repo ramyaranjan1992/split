@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+	 <property name="HOME_LOG_PATH" value="D:/Projects/logs"/>
+     <property name="PATTERN_CONSOLE" value=".%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n" />
+     <property name="PATTERN_ROLLING_FILE" value="%d{dd-MM-yyyy HH:mm:ss.SSS} %X{mdcData} [%thread] %-5level %logger{36}.%M - %msg%n" />
+     <property name="PATTERN_FILE" value="%-4relative [%thread] %-5level %logger{35} - %msg%n" />
+     <property name="MAX_FILE_SIZE" value="50MB" />
+     <property name="MAX_DAY_KEEP" value="60" />
+     
+     
+     
+     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+         <encoder>
+             <Pattern>${PATTERN_CONSOLE}</Pattern>
+         </encoder>
+         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+             <level>TRACE</level>
+         </filter>
+     </appender>  
+     
+     <root level="info">
+    <appender-ref ref="consoleAppender" />
+  </root>
+     	
+     
+     
+      <appender name="fileRollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      
+		<file>${HOME_LOG_PATH}/emi.log</file>
+		
+		<append>true</append>
+		
+         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+         
+             <fileNamePattern>${HOME_LOG_PATH}/emi.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+             
+             <!-- each archived file, size max 10MB -->
+             <maxFileSize>${MAX_FILE_SIZE}</maxFileSize> 
+             <!-- total size of all archive files, if total size > 20GB,
+                 it will delete old archived file -->
+             <totalSizeCap>20GB</totalSizeCap>
+             <!-- 60 days to keep -->
+             <maxHistory>${MAX_DAY_KEEP}</maxHistory>
+         </rollingPolicy>
+         <encoder>
+             <pattern>${PATTERN_ROLLING_FILE}</pattern>
+         </encoder>
+     </appender>
+	<root level="WARN">
+		<appender-ref ref="fileRollingAppender" />
+	</root>
+	<logger name="org.springframework.web" level="INFO">
+		<appender-ref ref="fileRollingAppender"></appender-ref>
+	</logger>
+	<!-- <logger name="com.mysql.jdbc.log.StandardLogger" level="DEBUG"> <appender-ref 
+		ref="fileRollingAppender"></appender-ref> </logger> -->
+	<logger name="org.hibernate" level="ERROR">
+		<appender-ref ref="fileRollingAppender"></appender-ref>
+	</logger>
+	
+	
+	<logger
+		name="org.springframework.web.filter.CommonsRequestLoggingFilter"
+		level="INFO">
+		<appender-ref ref="fileRollingAppender"></appender-ref>
+	</logger>
+	
+	
+	<logger name="payer" level="INFO">
+		<appender-ref ref="fileRollingAppender"></appender-ref>
+	</logger>
+	
+	
+	<logger name="com.zaxxer" level="DEBUG">
+		<appender-ref ref="fileRollingAppender"></appender-ref>
+	</logger>
+	
+	
+	<!-- below three lines of code will disable the refreshing of console -->
+	<logger name="com.zaxxer.hikari.pool.PoolBase" level="ERROR"/>
+    <logger name="com.zaxxer.hikari.pool.HikariPool" level="ERROR"/>
+    <logger name="com.zaxxer.hikari.HikariDataSource" level="ERROR"/>
+	
+</configuration>

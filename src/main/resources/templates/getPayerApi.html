@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="emi_home::layout(~{::div})">
+<head>
+<meta charset="UTF-8" />
+<title>Payer Detail</title>
+
+
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<!-- <th:block th:fragment="script2">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+
+</th:block> -->
+</head>
+
+
+<body>
+	<div>
+		<div class="container" style="border: 2px solid black;height: 350px;">
+
+			<div class="col-md-6 offset-md-3" >
+		
+				<h2 style="text-decoration: underline;text-transform: uppercase;margin-top: 60px;color: maroon;
+				">Please enter payer id</h2><br>
+
+					<form>
+						<h3><label for="payerId">Payer Id : </label></h3>
+						<input type="text" id="payerId" name="payerId">
+						<input id="submitButton" type="button" value="Click Here" />
+					</form>
+<script>
+let x = document.cookie;
+console.log(x.slice(9,))
+	$(document).ready(function() {
+		$('#submitButton').on('click', function() {
+			$.ajax({
+				 		url : "http://localhost:8080/payer/getPayer",
+						type : 'POST', 
+						data: $('#payerId').val(),
+						contentType : 'application/json',
+					    dataType: 'html',
+					    headers : {
+							"Authorization" : `${x.slice(9,)}`
+						},
+						async : false,
+				
+				
+				 		success: function(response){
+					 		document.write(response);
+					 //console.log("welcome to Emi");
+					} 
+				 });
+			   });
+			   });
+				
+</script>
+		
+	</div>
+	</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="emi_home::layout(~{::body})">
+<head>
+<meta charset="UTF-8" />
+<title>Monthly Payment</title>
+	
+	
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+let x = document.cookie;
+/* let data */ 
+console.log(x.slice(10,))
+	$(document).ready(function() {
+		$('#submitButton').on('click', function() {
+			$.ajax({
+				 url : "http://localhost:8080/payer/monthlyPayment",
+				type : 'POST', 
+				dataType: "json",
+				data: $('#payerId').val(),
+				contentType : 'application/json',
+				headers : {
+					"Authorization" : `${x.slice(10,)}`
+				},
+				async : false,
+				 success: function(data){
+					console.log(typeof data)
+					console.log(data)
+					console.log(typeof JSON.stringify(data,null," "))
+					console.log(JSON.stringify(data,null," "))
+					console.log(typeof JSON.stringify(data))
+					console.log(JSON.stringify(data))
+					console.log(typeof JSON.stringify(data).split(","))
+					console.log(JSON.stringify(data).split(","))
+					
+					/* const myArr=JSON.stringify(data).split(",");
+
+					$.each(myArr, function(index, value) {
+					  console.log(value);
+					  // Will stop running after "three"
+					  return (value !== 'three');
+					}); */
+
+					
+					//var str=JSON.stringify(data);
+					//var text = JSON.stringify(data, null, " ")
+					//const myArr = str.split(" ");
+					//$('#body').html(text);
+					  
+						 let temp = [];
+						const myArr=JSON.stringify(data).split(",");
+						console.log(myArr[0]);
+				 		for(i=0;i<myArr.length;i++){ 
+				 			temp[i]=temp[i--]+myArr[i];
+						$("body").html("<h3>"+temp[i]+",</h3><br>");
+					}   
+					
+					//console.log(myArr[0]);
+					//document.getElementById("body").innerHTML=myArr; 
+					
+					
+				} 
+				
+					
+
+					
+				
+					
+				/* }).then(res=> document.getElementById("body").innerHTML = (JSON.stringify(res,null," "))).catch(err=>{
+			    	console.log(err)
+			    }) */
+				
+				
+				
+				//}).then(res=> document.getElementById("body").innerHTML = res)
+				//}).then(res=> document.getElementById("body").innerHTML = res.success)
+			//}).then(res=> document.getElementById("body").innerHTML = res.error)
+		   //}).then(res=> document.getElementById("body").innerHTML = (JSON.stringify(res))).catch(err=>{
+		    	//console.log(err)
+		  
+		  });
+		   });
+		   });
+	
+</script>
+	
+</head>
+
+
+<body id="body">
+	<h1>Monthly Payment Details</h1>
+
+
+	<form action="payer/monthlyPayment" method="post">
+	<form>
+		<table class="center">
+		
+			<tr>
+				<td><label for="payerId">PayerId : </label></td>
+				<td><input type="text" id="payerId" name="payerId"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input id="submitButton" type="button" value="Get Monthly Payment Detail"/></td>
+			</tr>
+			
+		</table>
+			
+			<div><input type="submit" name="submit" value="Get Monthly Payment Detail"></div>
+	</form>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="emi_home::layout(~{::body})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+let x = document.cookie;
+console.log(x.slice(10,))
+	$(document).ready(function() {
+		$('#submitButton').on('click', function() {
+			$.ajax({
+				 url : "http://localhost:8080/payer/getPayer",
+				type : 'POST', 
+				dataType: "json",
+				data: $('#payerId').val(),
+				contentType : 'application/json',
+				headers : {
+					"Authorization" : `${x.slice(10,)}`
+				},
+				async : false,
+				 success: function(data){
+					
+					
+					  
+						
+					
+				} 
+				
+				
+				  
+			  });
+			   });
+			   });
+				
+</script>
+
+
+</head>
+<body>
+
+
+
+
+	<h1>Get Payer API</h1>
+
+
+	<form>
+
+		<table class="center">
+
+			<tr>
+				<td><label for="payerId">PayerId : </label></td>
+				<td><input type="text" id="payerId" name="payerId"></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td><input id="submitButton" type="button"
+					value="click here" /></td>
+			</tr>
+			
+		</table>
+
+	</form>
+
+
+</body>
+</html> -->

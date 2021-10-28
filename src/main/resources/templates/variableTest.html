@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>VariableTest</title>
+</head>
+<body th:with="a=null">
+
+	<!-- <h1 th:text="${userObject.token}"></h1>
+	<h1 th:text="${userObject.errorMsg}"></h1>
+	<h1 th:text="${userObject.response}"></h1>
+	private String token;
+
+	private String errorMsg;
+	private String response;
+	
+	<form action="">
+		<input type="text" th:value="${name}">
+		<input type="text" th:text="${userObject.response}">
+	</form>
+	
+	<div th:with="a=${'mango'}">
+	<div th:with="a=null">
+	<div th:with="a=mango">
+
+			 First way of printing
+		<h1 th:with="a=${name}">
+			value of a is <span th:text="${a}"></span>
+		</h1>
+	</div>
+	
+	
+	<div th:with="name=class=course=abc">
+	<h1 th:text="${name}"></h1>
+	<h1 th:text="${class}"></h1>
+	</div> -->
+	
+	
+	<!-- <div th:with="a,b=10,n=${name}"> -->
+	<!-- <div th:with="a,b=10,n=${name}"> -->
+	<!-- <div th:with="a=null,b=10,n=${name}"> -->
+	
+	<h1 th:text="${name}" ></h1>
+	
+	
+	<form action="" th:with="a=10">
+	<input type="text" th:value="${a}">
+	<!-- <input type="text" th:with="${a}" th:value="${a}"> -->
+	<!-- <input type="text" th:with="a=${name}" th:value="${a}"> -->
+	</form>
+	
+	<!-- <div th:with="a=10,b=10,n=${name}">
+
+			 First way of printing
+		<h1>
+			value of a is <span th:text="${a}"></span>
+		</h1>
+
+			Second way of printing
+		<h1 th:text="'Value of b is'+${b}"></h1>
+
+		<h1>
+			Local value of n is <span th:text="${n}"></span>
+		</h1>
+
+		<h1 th:text="'Sum of '+${a}+' and '+${b}+' is '+${a+b}"></h1>
+
+	</div> -->
+	
+	
+</body>
+</html>

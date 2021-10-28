@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>FormTest</title>
+</head>
+<body>
+
+		<!-- <form th:action="@{/testModel}" th:method="post">
+			<pre>
+			PayerId :       <input type="text" name="payerId">
+			
+			Name :          <input type="text" name="name">
+			
+			Mobile Number : <input type="text" name="mobileNumber">
+			
+			Email :         <input type="text" name="email">
+			
+			Amount :        <input type="text" name="amount">
+			
+			Address :       <input type="text" name="address">
+			
+			       <input type="submit" value="click here">
+			</pre>
+			
+		</form> -->
+		
+		
+		
+		
+		<form th:action="@{/testModel}" th:method="post">
+			<pre>
+			Name :       <input type="text" th:value="${payerId}" name="payerId">
+			
+			Course :     <input type="text" th:value="${name}" name="name">
+			
+			
+			
+			       <input type="submit" value="click here">
+			</pre>
+			
+		</form>
+	
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="emi_home::layout(~{::div})">
+
+<head>
+<meta charset="UTF-8" />
+<title>Payer Creation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+<!-- <th:block th:fragment="script1"> 
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script> 
+</th:block> -->
+</head>
+
+<body>
+
+	<div class="scrollable">
+		<div class="container">
+			<div class="col-md-8 offset-md-2" >
+			
+			<!-- <h2 style="text-decoration: underline;text-transform: uppercase;margin-top: 5px;color: maroon;
+				">Please enter your detail</h2><br> -->
+				
+				<div style="position: sticky; top: 0px; padding: 5px; background-color:rgb(255, 223, 223);
+				border: 2px solid silver;text-transform: uppercase;text-align: center;
+				font-size: 20px;font-family: monospace ;">Please enter your detail</div>
+
+				<form style="margin-left: 40px;">
+
+					<table id="payerCreation" class="table table-condensed table-borderless">
+
+						<tbody>
+							<tr>
+								<td><label for="fullName">FullName: </label></td>
+								<td><input type="text" id="fullName" name="fullName"></td>
+							</tr>
+							<tr>
+								<td><label for="parentName">Parent Name : </label></td>
+								<td><input type="text" id="parentName" name="parentName"></td>
+							</tr>
+
+							<tr>
+								<td><label for="email">Email:</label></td>
+								<td><input type="text" id="email" name="email"></td>
+							</tr>
+
+							<tr>
+								<td><label for="organisation">Organization</label></td>
+								<td><input type="text" id="organisation" name="organisation" value="SRS"></td>
+							</tr>
+
+							<tr>
+								<td><label for="pan">PAN : </label></td>
+								<td><input type="text" id="pan" name="pan"></td>
+							</tr>
+		
+							<tr>
+								<td><label for="dob">Date of Birth :</label></td>
+								<td><input type="text" id="dob" name="dob"></td>
+							</tr>
+		
+		
+							<tr>
+								<td><label for="gender">Gender :</label></td>
+								<td><input type="text" id="gender" name="gender"></td>
+							</tr>
+
+
+							<tr>
+								<td><label for="aadhaar">AadhaarNumber :</label></td>
+								<td><input type="text" id="aadhaar" name="aadhaar"></td>
+							</tr>
+		
+		
+							<tr>
+								<td><label for="phoneNumber">Phone Number:</label></td>
+								<td><input type="text" id="phoneNumber" name="phoneNumber"></td>
+		
+							</tr>
+
+					<tr>
+						<td><label for="alternativePhoneNumber">Alternative Phone Number:</label></td>
+						<td><input type="text" id="alternativePhoneNumber"
+							name="alternativePhoneNumber"></td>
+					</tr>
+
+					<tr>
+						<td><label for="city">City :</label></td>
+						<td><input type="text" id="city" name="city"
+							value="faridabad"></td>
+					</tr>
+
+
+					<tr>
+						<td><label for="state">State :</label></td>
+						<td><input type="text" id="state" name="state"
+							value="Haryana"></td>
+					</tr>
+
+					<tr>
+						<td><label for="address">Address :</label></td>
+						<td><input type="text" id="address" name="address"
+							value="sector 87"></td>
+					</tr>
+
+					<tr>
+						<td><label for="pin">PIN :</label></td>
+						<td><input type="text" id="pin" name="pin" value="121200"></td>
+					</tr>
+
+					<tr>
+						<td><label for="schemeName">Scheme Name :</label></td>
+						<td><input type="text" id="schemeName" name="schemeName"
+							value="house loan"></td>
+					</tr>
+
+					<tr>
+						<td><label for="rateOfInterest">Rate Of Interest :</label></td>
+						<td><input type="text" id="rateOfInterest"
+							name="rateOfInterest" value="9"></td>
+					</tr>
+
+					<tr>
+						<td><label for="penalInterest">PenalInterest :</label></td>
+						<td><input type="text" id="penalInterest"
+							name="penalInterest" value="3"></td>
+					</tr>
+
+					<tr>
+						<td><label for="penalGst">PenalGst :</label></td>
+						<td><input type="text" id="penalGst" name="penalGst"
+							value="8"></td>
+					</tr>
+
+					<tr>
+						<td><label for="gst">GST :</label></td>
+						<td><input type="text" id="gst" name="gst" value="8"></td>
+					</tr>
+
+					<tr>
+						<td><label for="loanTenure">Loan Tenure :</label></td>
+						<td><input type="text" id="loanTenure" name="loanTenure"
+							value="240"></td>
+					</tr>
+
+
+					<tr>
+						<td><label for="loanAmount">Loan Amount :</label></td>
+						<td><input type="text" id="loanAmount" name="loanAmount"
+							value="2500000"></td>
+					</tr>
+
+					<tr>
+						<td><label for="loanEmiDate">LoanEmiDate :</label></td>
+						<td><input type="text" id="loanEmiDate" name="loanEmiDate"></td>
+					</tr>
+
+				</tbody>
+
+			</table>
+			
+			
+					<input id="submitButton" type="button" value="Click Here" style="margin-left: 100px;
+					width: 200px;"/>
+					
+
+		</form>
+
+
+
+
+
+
+		<script>
+let x = document.cookie;
+console.log(x.slice(9,))
+//console.log(x.slice(0,))
+	$(document).ready(function() {
+		$('#submitButton').on('click', function() {
+			$.ajax({
+				 url : "http://localhost:8080/payer/creation",
+				type : 'POST', 
+				data: JSON.stringify({ 
+	                  fullName: $('#fullName').val(),
+	                  parentName: $('#parentName').val(),
+	                  email: $('#email').val(),
+	                  organisation: $('#organisation').val(),
+	                  pan: $('#pan').val(),
+	                  dob: $('#dob').val(),
+	                  gender: $('#gender').val(),
+	                  aadhaar: $('#aadhaar').val(),
+	                  phoneNumber: $('#phoneNumber').val(),
+	                  alternativePhoneNumber: $('#alternativePhoneNumber').val(),
+	                  city: $('#city').val(),
+	                  state: $('#state').val(),
+	                  address: $('#address').val(),
+	                  pin: $('#pin').val(),
+	                  schemeName: $('#schemeName').val(),
+	                  rateOfInterest: $('#rateOfInterest').val(),
+	                  penalInterest: $('#penalInterest').val(),
+	                  penalGst: $('#penalGst').val(),
+	                  gst: $('#gst').val(),
+	                  loanTenure: $('#loanTenure').val(),
+	                  loanAmount: $('#loanAmount').val(),
+	                  loanEmiDate: $('#loanEmiDate').val()
+	                }),
+				contentType : 'application/json',
+				dataType: 'html',
+				headers : {
+					"Authorization" : `${x.slice(9,)}`
+				},
+				async : false,
+				success:function(response) { 
+					console.log("welcome response");
+					 //window.location.href = "http://localhost:8080/payer/creation";
+					document.write(response);
+					//console.log(response)
+					//$('#appendResponse').html(response);
+					 /* window.location.href="output.html" ;    */
+					//$('#content').load("new.html");
+					}
+			/* }).then(res=> document.getElementById("body").innerHTML = (JSON.stringify(res))).catch(err=>{
+		    	console.log(err)
+			}) */
+		});
+	});
+	});
+</script>
+	</div>
+	</div>
+	</div>
+
+</body>
+
+</html>

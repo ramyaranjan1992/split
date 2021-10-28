@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Sign in</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet"  th:href="@{/css/style.css}" />
+
+
+
+<!-- for showing eye icon in password -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+
+</head>
+
+
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-primary justify-content-center">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<h1>EMI Calculator</h1>
+			</li>
+
+
+		</ul>
+	</nav>
+	<br>
+
+	<div class="container-fluid text-center py-5">
+
+
+		<div class="row">
+
+			<div class="col-md-6 offset-md-3">
+				<!-- first column -->
+				<div class="card">
+					<div class="card-body">
+
+
+
+						<h2>Please sign in</h2>
+						<form class="mt-5" th:action="@{/merchant}" th:method="post"
+							th:object="${loginData}">
+							<div class="form-group">
+								<label for="merchant">Username:</label> <input type="text"
+									name="merchant" th:value="${loginData.merchant}"
+									th:classappend="${#fields.hasErrors('merchant')?'is-invalid':''}"
+									class="form-control" placeholder="Enter username" id="merchant"
+									aria-describedby="emailHelp">
+
+								<div th:each="error : ${#fields.errors('merchant')}"
+									th:text="${error}" id="validationServer03Feedback"
+									class="invalid-feedback"></div>
+
+							</div>
+							<div class="form-group">
+								<label for="password">Password:</label> <input type="password"
+									name="pwd" th:value="${loginData.pwd}"
+									th:classappend="${#fields.hasErrors('pwd')?'is-invalid':''}"
+									class="form-control" placeholder="Enter password"
+									aria-describedby="emailHelp" id="password">
+
+								<!-- Use the tag <i> to display the eye icon. This icon is also know as visibility eye icon -->
+								<i class="bi bi-eye-slash" id="togglePassword"></i>
+
+
+								<div th:each="error : ${#fields.errors('pwd')}"
+									th:text="${error}" id="validationServer03Feedback"
+									class="invalid-feedback"></div>
+
+
+							</div>
+
+							<input id="submitButton" type="submit" value="Sign in"
+								class="btn btn-primary">
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<script type="text/javascript">
+
+var togglePassword = document.querySelector('#togglePassword');
+var password = document.querySelector('#password');
+
+	togglePassword.addEventListener('click', function(e) {
+		// toggle the type attribute
+		var type = password.getAttribute('type') === 'password' ? 'text'
+				: 'password';
+		password.setAttribute('type', type);
+		// toggle the eye / eye slash icon
+		this.classList.toggle('bi-eye');
+	});
+</script>
+
+</body>
+</html>

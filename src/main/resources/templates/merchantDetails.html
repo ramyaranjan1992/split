@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	
+	<link rel="shortcut icon" href="#">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	
+	<!-- <script>
+	$(document).ready(function(){
+		  $("input").click(function(){
+	 $.ajax({
+         url: "http://localhost:8080/merchant",
+         type: 'post',
+         contentType: 'application/json',
+         headers: {
+             "Authorization": "Bearer " + token
+         }
+     });
+	});
+}); 
+	
+	</script>-->
+	
+	<script th:src="@{/js/script.js}"></script>
+	
+</head>
+
+
+<body>
+
+
+	<form th:action="@{/merchant}" th:method="post" th:object="${MBO}">
+						
+		Merchant Id : <input type="text" name="merchantId" th:field="*{merchantId}"><br><br>
+		Secret Key : <input type="text" name="secretkey" th:field="*{secretkey}"><br><br>
+		<input type="submit" value="Generate Token" id="login" />
+	</form>
+	
+	
+	
+	
+	
+<!-- 	<script>
+			
+	$(document).ready(function () {
+
+	    $("#login").click(function () {
+
+	    });
+
+	    $("#showData").click(function () {
+
+	    });
+
+	    $("#logout").click(function () {
+
+	    });
+	});
+	
+	
+	$("#login").click(function () {
+
+	    var options = {};
+	    options.url = "http://localhost:8080/merchant";
+	    options.type = "POST";
+
+	    var obj = {};
+
+	    obj.userName = "9912247388";
+	    obj.password = "123456";
+
+	    options.data = JSON.stringify(obj);
+	    options.contentType = "application/json";
+	    options.dataType = "json";
+
+	    options.success = function (obj) {
+	        sessionStorage.setItem("token", obj.token);
+	       
+	    };
+	    
+	    options.error = function () {
+	        
+	    };
+	    
+	    $.ajax(options);
+	});
+	
+			
+	
+	</script> -->
+	
+	   <!--  <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btnFetch').addEventListener('click', sendReq);
+            //pretend to get a token after logging in
+            setCookie('jwtToken',
+                JSON.stringify(
+                    response.headers.authorization
+                    )
+            );
+        });
+
+        let sendReq = (ev) => {
+            let url = 'http://localhost:8080/merchant';
+            let token = JSON.parse(cookies.get('jwtToken'));
+
+            let h = new Headers();
+            h.append('Authorization', `Bearer ${token}`);
+
+            let req = new Request(url, {
+                method: 'POST',
+                mode: 'cors',
+                headers: h
+            });
+            fetch(req)
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data[0]);
+                })
+                .catch(err => {
+                    console.error(err.message);
+                })
+        }
+    </script> -->
+	
+</body>
+</html> 

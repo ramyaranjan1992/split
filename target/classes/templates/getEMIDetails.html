@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="emi_home::layout(~{::div})">
+<head>
+<meta charset="UTF-8" />
+<title>EMI Details</title>
+
+
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<!-- <th:block th:fragment="script2">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+
+</th:block> -->
+</head>
+
+
+<body>
+
+
+
+	<div>
+		<div class="container" style="border: 2px solid black;height: 500px;">
+			<div class="col-md-6 offset-md-3" >
+			
+			<h2 style="text-decoration: underline;text-transform: uppercase;margin-top: 50px;color: maroon;
+				">Please enter your detail</h2><br>
+
+				<form style="margin-left: 20px;">
+
+					<table id="payerCreation" class="table table-condensed table-borderless">
+
+						<tbody>
+								
+							<tr>
+								<td><label for="payerId" style="font-size: x-large;">PayerId : </label></td>
+								<td><input type="text" id="payerId" name="payerId"></td>
+							</tr>
+							<tr>
+								<td><label for="startDate" style="font-size: x-large;">Start Date : </label></td>
+								<td><input type="text" id="startDate" name="startDate"></td>
+							</tr>
+							<tr>
+								<td><label for="endDate" style="font-size: x-large;">End Date : </label></td>
+								<td><input type="text" id="endDate" name="endDate"></td>
+							</tr>
+							<tr>
+								<td><label for="totalData" style="font-size: x-large;">Total Data : </label></td>
+								<td><input type="text" id="totalData" name="totalData"></td>
+							</tr>
+				
+
+						</tbody>
+
+					</table>
+			
+			
+					<input id="submitButton" type="button" value="Get EMI Details" style="margin-left: 70px;
+					width: 200px; font-weight: bold;"/>
+					
+
+		</form>
+
+<script>
+let x = document.cookie;
+console.log(x.slice(9,))
+//console.log(x.slice(0,))
+	$(document).ready(function() {
+		$('#submitButton').on('click', function() {
+			$.ajax({
+				 url : "http://localhost:8080/payer/EMIDetails",
+				type : 'POST', 
+				data: JSON.stringify({ 
+	                  payerId: $('#payerId').val(),
+	                  startDate: $('#startDate').val(),
+	                  endDate: $('#endDate').val(),
+	                  totalData: $('#totalData').val(),
+	                  }),
+				contentType : 'application/json',
+				dataType: 'html',
+				headers : {
+					"Authorization" : `${x.slice(9,)}`
+				},
+				async : false,
+				success:function(response) { 
+					console.log(response);
+					document.write(response);
+					
+					}
+			
+		});
+	});
+	});
+</script>
+	</div>
+	</div>
+	</div>
+
+
+
+
+
+
+
+
+
+<!--	<div>
+		<div class="container" id="scroll" >
+			<div class="col-md-6 offset-md-3" >
+			
+			<h2 style="text-decoration: underline;text-transform: uppercase;margin-top: 5px;color: maroon;
+				">Please enter your detail</h2><br>
+
+				<form style="margin-left: -20px;">
+
+					<table id="payerCreation" class="table table-condensed table-borderless">
+
+						<tbody>
+
+				<tr>
+					<td><label for="payerId">PayerId : </label></td>
+					<td><input type="text" id="payerId" name="payerId"></td>
+				</tr>
+				<tr>
+					<td><label for="startDate">Start Date : </label></td>
+					<td><input type="text" id="startDate" name="startDate"></td>
+				</tr>
+				<tr>
+					<td><label for="endDate">End Date : </label></td>
+					<td><input type="text" id="endDate" name="endDate"></td>
+				</tr>
+				<tr>
+					<td><label for="totalData">Total Data : </label></td>
+					<td><input type="text" id="totalData" name="totalData"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input id="submitButton" type="button"
+						value="Click Here" /></td>
+				</tr>
+				</tbody>
+
+			</table>
+		</form>
+		<script>
+let x = document.cookie;
+console.log(x.slice(0,))	
+	$(document).ready(function() {
+		$('#submitButton').on('click', function() {
+			$.ajax({
+				 		url : "http://localhost:8080/payer/getPayerInfo",
+						type : 'POST', 
+						data: JSON.stringify({
+							payerId:$('#payerId').val(),
+							startDate:  $('#startDate').val(),
+							endDate: $('#endDate').val(),
+							totalData:  $('#totalData').val()
+						      }),
+						
+											
+					    contentType : 'application/json',
+					    dataType: 'html',
+					    headers : {
+							"Authorization" : `${x.slice(0,)}`
+						},
+						async : false,
+				
+				
+				 		success: function(response){
+					 		document.write(response);
+					 //console.log("welcome to Emi");
+					} 
+				
+				
+				  
+			  });
+			   });
+			   });
+				
+</script>
+		
+	</div> -->
+</body>
+</html>
+

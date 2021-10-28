@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="emi_home::layout(~{::div})">
+<head>
+<meta charset="UTF-8" />
+<title>Redirect Page</title>
+
+</head>
+<body>
+	<div>
+
+
+		<div th:if="${Transaction.resMsg} == 'Sorry, Your Transaction has Failed.'" style="border: solid;background-color: aqua;">
+			<span
+			style="color: red; margin-left: 200px; text-transform: uppercase; font-style: italic;
+			 font-size: 30px; position: relative;">Sorry, Your Transaction has Failed.
+			 <i class="fa fa-exclamation-circle" style="position: absolute;margin-top:5px;margin-left: 10px;
+			 font-size: 35px;"></i>
+			</span>
+		</div><br><br>
+		
+		
+		
+		
+		<div th:if="${Transaction.resMsg} == 'Your Transaction is Complete'" style="border: solid;background-color: aqua;">
+			<span
+			style="color: green; margin-left: 200px; text-transform: uppercase; font-style: italic;
+			 font-size: 30px; position: relative;">Transaction has been successful
+			 <i class="fa fa-check-circle" style="position: absolute;margin-top:5px;margin-left: 10px;
+			 font-size: 35px;"></i>
+			</span>
+		</div><br><br>
+
+
+
+
+
+		<!-- <p>...<span th:text="${array.length}"></span>...</p> -->
+
+
+		<!-- <ol>
+    <li th:text="${array[2]}"></li>
+    <li th:text="${array[0]}"></li>
+    <li th:text="${array[4]}"></li>
+    <li th:text="${array[5]}"></li>
+    
+</ol> -->
+
+
+
+
+
+		<ul>
+			<li style="font-style: italic; font-family: monospace; font-size: larger;"
+				th:text="'Payer Name = '+${Transaction.firstName}+' '+${Transaction.lastName}"></li>
+				
+			<li style="font-style: italic; font-family: monospace; font-size: larger;"
+				th:text="'Payment Mode = '+${Transaction.payMode}"></li>
+				
+			<li style="font-style: italic; font-family: monospace; font-size: larger;"
+				th:text="'Total Amount = '+${Transaction.amount}"></li>
+				
+			<li style="font-style: italic; font-family: monospace; font-size: larger;"
+				th:text="'Transaction Id = '+${Transaction.clientTxnId}"></li>
+				
+			<li style="font-style: italic; font-family: monospace; font-size: larger;"
+				th:text="'Transaction Date = '+${Transaction.transDate}"></li>
+				
+			<li style="font-style: italic; font-family: monospace; font-size: larger;"
+				th:text="'Response Status = '+${Transaction.spRespStatus}"></li>
+			<li style="font-style: italic; font-family: monospace; font-size: larger;"
+				th:text="'Response Status = '+${Transaction.resMsg}"></li>					
+		</ul>
+
+
+
+
+	</div>
+
+</body>
+</html>

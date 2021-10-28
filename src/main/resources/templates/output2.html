@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="emi_home::layout(~{::div})">
+<head>
+<meta charset="UTF-8" />
+<title>Output2</title>
+</head>
+<body>
+
+
+	<!-- <div th:if="${Transaction.resMsg} == 'Sorry, Your Transaction has Failed.'" style="border: solid;background-color: aqua;">
+			<span
+			style="color: red; margin-left: 200px; text-transform: uppercase; font-style: italic;
+			 font-size: 30px; position: relative;">Sorry, Your Transaction has Failed.
+			 <i class="fa fa-exclamation-circle" style="position: absolute;margin-top:5px;margin-left: 10px;
+			 font-size: 35px;"></i>
+			</span>
+		</div> -->
+
+
+
+
+
+
+	<div>
+
+		<div th:each="element : ${hashMapObject}">
+
+			<div th:if="${element.key} == 'Invalid'">
+
+				<h3 style="color: red;" th:text="${element.value}"></h3>
+
+			</div>
+
+			<div th:if="${element.key} == 'Success'">
+
+				<!-- <h3 style="color: blue;" th:text="${element.value}"></h3>
+					
+					<h3 style="color: yellow;" th:text="${element.value.fullName}"></h3> -->
+
+				<div class="container-fluid scrollable">
+					<h3>Monthly Payment Details :-</h3><br>
+					<table id="dtHorizontalVerticalExample" 
+					class="table table-bordered table-striped table-hover rs-table-bordered">
+					
+						<thead class="thead-dark">
+							<tr>
+								<th>Account Id</th>
+								<th>Fullname</th>
+								<th>Parent Name</th>
+								<th>Date Of Birth</th>
+								
+								<th>Email Id</th>
+								<th>Phone Number</th>
+								<th>Alternative Phone Number</th>
+								
+								<th>Aadhaar Number</th>
+								<th>Gender</th>
+								<th>City</th>
+								<th>State</th>
+								<th>Address</th>
+								
+								<th>Pan Number</th>
+								<th>Pin Number</th>
+
+								<th>Organization</th>
+								<th>Scheme Name</th>
+								<th>Rate Of Interest</th>
+								<!-- <th>Penal Interest</th>
+								<th>Penal GST</th> -->
+								<th>GST</th>
+
+								<th>Merchant Id</th>
+								<th>Loan EMI Date</th>
+								<th>Loan Amount</th>
+								<th>Loan Tenure</th>
+								<th>EMI Date</th>
+								<th>Interest</th>
+								<th>Principal</th>
+								<th>GST on principal</th>
+								<th>Payable EMI</th>
+								<th>Total Payable</th>
+								<th>Pay Status</th>
+								<th>Pay Mode</th>
+								<th>Balance</th>
+								<!-- <th>Payment Confirmation</th>
+								<th>Default Payer</th> -->
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td th:text="${element.value.accountId}"></td>
+								<td th:text="${element.value.fullName}"></td>
+								<td th:text="${element.value.parentName}"></td>
+								<td th:text="${element.value.dob}"></td>
+
+								<td th:text="${element.value.email}"></td>
+								<td th:text="${element.value.phoneNumber}"></td>
+								<td th:text="${element.value.alternativePhoneNumber}"></td>
+
+								<td th:text="${element.value.aadhaar}"></td>
+								<td th:text="${element.value.gender}"></td>
+								<td th:text="${element.value.city}"></td>
+								<td th:text="${element.value.state}"></td>
+								<td th:text="${element.value.address}"></td>
+
+								<td th:text="${element.value.pan}"></td>
+								<td th:text="${element.value.pin}"></td>
+								
+								<td th:text="${element.value.organisation}"></td>
+								<td th:text="${element.value.schemeName}"></td>
+								<td th:text="${element.value.rateOfInterest}"></td>
+								<!-- <td th:text="${element.value.penalInterest}"></td>
+								<td th:text="${element.value.penalGst}"></td> -->
+								<td th:text="${element.value.gst}"></td>
+								
+								<td th:text="${element.value.merchantId}"></td>
+								<td th:text="${element.value.loanEmiDate}"></td>
+
+								<td th:text="${element.value.loanAmount}"></td>
+								<td th:text="${element.value.loanTenure}"></td>
+								<td th:text="${element.value.emiDate}"></td>
+								<td th:text="${element.value.interest}"></td>
+
+								<td th:text="${element.value.principal}"></td>
+								<td th:text="${element.value.gstOnPrincipal}"></td>
+								<td th:text="${element.value.paybleEmi}"></td>
+
+
+
+
+
+
+								<td th:text="${element.value.totalPayble}"></td>
+								<td th:text="${element.value.payStatus}"></td>
+								<td th:text="${element.value.payMode}"></td>
+								<td th:text="${element.value.balance}"></td>
+
+								<!-- <td th:text="${element.value.paymentConfirmation}"></td>
+								<td th:text="${element.value.defaultPayer}"></td> -->
+
+
+
+
+
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+
+
+			</div>
+
+			<div th:if="${element.key} == 'Exception'">
+
+				<h3 style="color: red;" th:text="${element.value}"></h3>
+
+			</div>
+
+		</div>
+
+	</div>
+</body>
+</html>

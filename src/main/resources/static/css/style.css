@@ -1,0 +1,141 @@
+i{
+	cursor: pointer;
+	position: relative;
+	z-index: 2;
+	float: right;
+	margin-right: 35px;
+	margin-top: -32px;
+}
+
+.scrollable {
+	/* overflow: scroll;
+	overflow-x: auto; */
+	/* overflow-y: auto;
+  max-height: 500px; */
+	overflow-x: auto;
+	overflow-y: visible;
+	max-height: 500px;
+}
+
+.scroll {
+	overflow-x: auto;
+	overflow-y: visible;
+	max-height: 280px;
+}
+
+
+#dtHorizontalVerticalExample th, td {
+	white-space: nowrap;
+	text-align: center;
+}
+
+#payerCreation th, td {
+	white-space: nowrap;
+	text-align: left;
+}
+
+.services {
+	margin: 0 ! important;
+}
+
+.message {
+	background-image: linear-gradient(to top, #fad0c4 0%, rgb(255, 223, 223) 100%);
+}
+
+table.rs-table-bordered{
+    border: 1px solid black;
+    /* margin-top:20px; */
+  }
+table.rs-table-bordered > thead > tr > th{
+    border:1px solid black;
+}
+table.rs-table-bordered > tbody > tr > td{
+    border:1px solid black;
+}
+
+.rs-table-bordered thead th { position: sticky; top: 0px;}
+
+
+
+/* body{
+    font-family: 'Lobster', cursive;
+font-family: 'Rubik', sans-serif;
+}
+.header{
+    height: 90vh;
+    width: 100%;
+    
+    color: white;
+
+    background: linear-gradient(to right, rgb(151, 134, 214),rgba(0,0,0,0.2)),
+    url(https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+}
+
+.btn{
+    border-radius: 10rem !important;
+    padding: 1.25rem 2.24rem !important;
+}
+
+.message{
+    background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+}
+
+.myicon{
+    font-size: 60px;
+    padding: 20px;
+} */
+
+/* body,hr,a{
+	 
+	font-style: oblique;
+	font-family: cursive;
+	font: bold;
+	line-height: 20px;
+}
+
+h1
+{
+	text-align: center;
+}
+div{
+	text-align:center;	
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav{
+	font-style: oblique;
+	font-family: cursive;
+	font: bold;
+}
+
+
+.btn{
+    border-radius: 10rem !important;
+    padding: 1.25rem 2.24rem !important;
+}
+
+
+
+
+
+ */
+ 
+ 
+ 
+ 
+ 
+
+/* .scrollable h2{position: sticky; top: 0; z-index: 1;} */
+/* .rs-table-bordered thead th { position: sticky; top: 0px;z-index: 1; } */
+
+
+
+
+
+
+
